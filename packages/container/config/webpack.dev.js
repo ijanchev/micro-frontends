@@ -1,9 +1,7 @@
 const commonConfig = require("./webpack.common");
-const { merge } = require("webpack-merge");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ModuleFederationWebpackPlugin = require("webpack/lib/container/ModuleFederationPlugin");
-
 const packageJson = require("../package.json");
+const { merge } = require("webpack-merge");
+const ModuleFederationWebpackPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 
 const devConfig = {
   mode: "development",
@@ -14,9 +12,6 @@ const devConfig = {
     },
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: "./public/index.html",
-    }),
     new ModuleFederationWebpackPlugin({
       name: "ContainerApp",
       remotes: {
