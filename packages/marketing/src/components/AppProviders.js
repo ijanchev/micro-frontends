@@ -1,10 +1,17 @@
 import React from "react";
-import { StylesProvider } from "@material-ui/core/styles";
+import {
+  StylesProvider,
+  createGenerateClassName,
+} from "@material-ui/core/styles";
 import { BrowserRouter } from "react-router-dom";
+
+const generateClassName = createGenerateClassName({
+  productionPrefix: "mar",
+});
 
 const AppProviders = ({ children }) => {
   return (
-    <StylesProvider>
+    <StylesProvider generateClassName={generateClassName}>
       <BrowserRouter>{children}</BrowserRouter>
     </StylesProvider>
   );
