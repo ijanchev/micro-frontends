@@ -4,7 +4,7 @@ import Button from "@material-ui/core/Button";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, NavLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   "@global": {
@@ -80,6 +80,12 @@ export default function Header({ signedIn, onSignOut }) {
             to="/"
           >
             App
+          </Typography>
+          <Typography className={classes.root}>
+            <NavLink to="/">{"Home - "}</NavLink>
+            <NavLink to="/auth">{"Auth - "}</NavLink>
+            <NavLink to="/dashboard">{"Dashboard - "}</NavLink>
+            <NavLink to="/test">{" Test"}</NavLink>
           </Typography>
           <Button
             color="primary"

@@ -3,16 +3,16 @@ import {
   StylesProvider,
   createGenerateClassName,
 } from "@material-ui/core/styles";
-import { BrowserRouter } from "react-router-dom";
+import { Router } from "react-router-dom";
 
 const generateClassName = createGenerateClassName({
   productionPrefix: "mar",
 });
 
-const AppProviders = ({ children }) => {
+const AppProviders = ({ children, history }) => {
   return (
     <StylesProvider generateClassName={generateClassName}>
-      <BrowserRouter>{children}</BrowserRouter>
+      <Router history={history}>{children}</Router>
     </StylesProvider>
   );
 };

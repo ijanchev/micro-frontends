@@ -1,14 +1,13 @@
 import React from "react";
-import AppProviders from "./AppProviders";
 import Header from "./Header";
-import MarketingApp from "./MarketingApp";
+import Routes from "./Routes";
 
 const App = () => {
   return (
-    <AppProviders>
+    <>
       <Header />
-      <MarketingApp />
-    </AppProviders>
+      <Routes />
+    </>
   );
 };
 
