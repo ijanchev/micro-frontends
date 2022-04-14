@@ -5,6 +5,7 @@ const ModuleFederationWebpackPlugin = require("webpack/lib/container/ModuleFeder
 
 const devConfig = {
   mode: "development",
+  //public path set in dev mode, to proper loading of the js files
   output: {
     publicPath: "http://localhost:8082/",
   },
