@@ -6,20 +6,20 @@ const ModuleFederationWebpackPlugin = require("webpack/lib/container/ModuleFeder
 const devConfig = {
   mode: "development",
   output: {
-    publicPath: "http://localhost:8080/",
+    publicPath: "http://localhost:8082/",
   },
   devServer: {
-    port: 8080,
+    port: 8082,
     historyApiFallback: {
       index: "/index.html",
     },
   },
   plugins: [
     new ModuleFederationWebpackPlugin({
-      name: "ContainerApp",
-      remotes: {
-        marketing: "MarketingApp@http://localhost:8081/remoteEntry.js",
-        auth: "AuthApp@http://localhost:8082/remoteEntry.js",
+      name: "AuthApp",
+      filename: "remoteEntry.js",
+      exposes: {
+        "./api": "./src/bootstrap",
       },
       shared: packageJson.dependencies,
     }),

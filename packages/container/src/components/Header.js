@@ -81,12 +81,6 @@ export default function Header({ signedIn, onSignOut }) {
           >
             App
           </Typography>
-          <Typography className={classes.root}>
-            <NavLink to="/">{"Home - "}</NavLink>
-            <NavLink to="/auth">{"Auth - "}</NavLink>
-            <NavLink to="/dashboard">{"Dashboard - "}</NavLink>
-            <NavLink to="/test">{" Test"}</NavLink>
-          </Typography>
           <Button
             color="primary"
             variant="outlined"
