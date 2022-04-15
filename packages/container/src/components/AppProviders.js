@@ -4,6 +4,7 @@ import {
   createGenerateClassName,
 } from "@material-ui/core/styles";
 import { BrowserRouter } from "react-router-dom";
+import { AuthProvider } from "../context/AuthContext";
 
 const generateClassName = createGenerateClassName({
   productionPrefix: "con",
@@ -11,9 +12,11 @@ const generateClassName = createGenerateClassName({
 
 const AppProviders = ({ children }) => {
   return (
-    <StylesProvider generateClassName={generateClassName}>
-      <BrowserRouter>{children}</BrowserRouter>
-    </StylesProvider>
+    <AuthProvider>
+      <StylesProvider generateClassName={generateClassName}>
+        <BrowserRouter>{children}</BrowserRouter>
+      </StylesProvider>
+    </AuthProvider>
   );
 };
 

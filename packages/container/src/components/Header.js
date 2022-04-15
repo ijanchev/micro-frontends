@@ -4,7 +4,8 @@ import Button from "@material-ui/core/Button";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import { Link as RouterLink, NavLink } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
+import { useAuthContext } from "../context/AuthContext";
 
 const useStyles = makeStyles((theme) => ({
   "@global": {
@@ -54,12 +55,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Header({ signedIn, onSignOut }) {
+export default function Header() {
   const classes = useStyles();
+  const { isSignedIn, signOut } = useAuthContext();
 
   const onClick = () => {
-    if (signedIn && onSignOut) {
-      onSignOut();
+    if (isSignedIn) {
+      signOut();
     }
   };
 
@@ -86,10 +88,10 @@ export default function Header({ signedIn, onSignOut }) {
             variant="outlined"
             className={classes.link}
             component={RouterLink}
-            to={signedIn ? "/" : "/auth/signin"}
+            to={isSignedIn ? "/" : "/auth/signin"}
             onClick={onClick}
           >
-            {signedIn ? "Logout" : "Login"}
+            {isSignedIn ? "Logout" : "Login"}
           </Button>
         </Toolbar>
       </AppBar>
