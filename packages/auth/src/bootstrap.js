@@ -36,7 +36,13 @@ if (process.env.NODE_ENV === "development") {
   const element = document.getElementById("__root__");
   //in dev mode we will create browser history instead of memory history
   const defaultHistory = createBrowserHistory();
-  if (element) mount(element, { defaultHistory });
+  if (element)
+    mount(element, {
+      defaultHistory,
+      onSignIn: () => {
+        console.log("sign in button clicked");
+      },
+    });
 }
 
 export { mount };
