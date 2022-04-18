@@ -12,11 +12,11 @@ const generateClassName = createGenerateClassName({
 
 const AppProviders = ({ children }) => {
   return (
-    <AuthProvider>
-      <StylesProvider generateClassName={generateClassName}>
-        <BrowserRouter>{children}</BrowserRouter>
-      </StylesProvider>
-    </AuthProvider>
+    <StylesProvider generateClassName={generateClassName}>
+      <BrowserRouter>
+        <AuthProvider>{children}</AuthProvider>
+      </BrowserRouter>
+    </StylesProvider>
   );
 };
 

@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 const AuthContext = React.createContext();
 AuthContext.displayName = "ContainerAuthContext";
@@ -14,6 +15,12 @@ export const useAuthContext = () => {
 
 export const AuthProvider = ({ children }) => {
   const [isSignedIn, setIsSignedIn] = React.useState(false);
+  const history = useHistory();
+
+  React.useEffect(() => {
+    if (isSignedIn) history.push("/dashboard");
+  }, [isSignedIn]);
+
   const value = React.useMemo(
     () => ({
       isSignedIn,
